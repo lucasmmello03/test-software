@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Especial para Yane</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      text-align: center;
+      color: #333;
+      overflow: hidden; /* Evita rolagem */
+      background: linear-gradient(to bottom right, #9932CC, #E6E6FA); /* Fundo padrão */
+    }
+
+    /* Fundo personalizado para a segunda tela */
+    #page2 {
+      background: url('assets/img5.jpg') no-repeat center center fixed;
+      background-size: cover; /* Cobrir toda a tela */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn 1s ease-in;
+      position: relative;
+      z-index: 2; /* Garante que o conteúdo fique acima do fundo */
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff; /* Texto branco para contrastar com o fundo */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #fff; /* Texto branco para contrastar com o fundo */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+    }
+
+    button {
+      background-color: #BA55D3;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      margin: 10px;
+      box-shadow: 0 0 10px #FF69B4, 0 0 20px #FF69B4, 0 0 30px #FF69B4;
+    }
+
+    button:hover {
+      background-color: #9932CC;
+      box-shadow: 0 0 20px #FF69B4, 0 0 30px #FF69B4, 0 0 40px #FF69B4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Balanças e computadores na página 1 */
+    .balanca, .balanca2, .balanca3,
+    .computador, .computador2, .computador3 {
+      font-size: 4rem;
+      color: #ffffff80;
+      position: absolute;
+      animation: float 6s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    /* Posicionamento das balanças (lado esquerdo) */
+    .balanca {
+      top: 10%;
+      left: 10%;
+    }
+
+    .balanca2 {
+      top: 40%;
+      left: 15%;
+    }
+
+    .balanca3 {
+      bottom: 10%;
+      left: 20%;
+    }
+
+    /* Posicionamento dos computadores (lado direito) */
+    .computador {
+      top: 15%;
+      right: 10%;
+    }
+
+    .computador2 {
+      top: 50%;
+      right: 15%;
+    }
+
+    .computador3 {
+      bottom: 15%;
+      right: 20%;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* CORAÇÕES PULSANDO */
+    .heart-fixed {
+      font-size: 3rem;
+      color: #FF69B4;
+      position: absolute;
+      animation: pulse 1.5s infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.3);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    /* Corações flutuando */
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      transform: rotate(-45deg);
+      animation: floatUp 5s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 15px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Estilo para as fotos que sobem */
+    .photo {
+      position: absolute;
+      width: 100px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: photoFloatUp 8s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes photoFloatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Efeito de zoom na mensagem final */
+    h1.final-message {
+      font-size: 3rem;
+      animation: zoomIn 2s ease-in-out;
+      color: #fff; /* Texto branco para contrastar com o fundo */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Estilo da mini cartinha */
+    .cartinha {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      z-index: 1000;
+      animation: openCartinha 0.5s ease-in-out forwards;
+    }
+
+    @keyframes openCartinha {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .cartinha h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #9932CC;
+    }
+
+    .cartinha p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .cartinha button {
+      background-color: #BA55D3;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cartinha button:hover {
+      background-color: #9932CC;
+    }
+
+    /* Overlay para escurecer o fundo */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contagem regressiva -->
+  <div id="countdown" class="container">
+    <h1>Prepare-se...</h1>
+    <p id="countdown-timer">3</p>
+  </div>
+
+  <!-- Página Inicial -->
+  <div id="page1" class="container hidden">
+    <!-- Balanças (lado esquerdo) -->
+    <div class="balanca" title="Nosso equilíbrio perfeito!">⚖️</div>
+    <div class="balanca2" title="Nossa conexão única!">⚖️</div>
+    <div class="balanca3" title="Nosso amor em harmonia!">⚖️</div>
+
+    <!-- Computadores (lado direito) -->
+    <div class="computador" title="Nossas conversas intermináveis!">💻</div>
+    <div class="computador2" title="Nossos momentos especiais!">💻</div>
+    <div class="computador3" title="Nossa história!">💻</div>
+
+    <h1>Ei, Jovem Senhora...</h1>
+    <p id="typed-text"></p>
+    <button onclick="showPage2()">Clique aqui para descobrir, Yane</button>
+  </div>
+
+  <!-- Página de perguntas -->
+  <div id="page2" class="container hidden">
+    <!-- CORAÇÕES FIXOS -->
+    <div class="heart-fixed" style="top: 10%; left: 15%;">❤️</div>
+    <div class="heart-fixed" style="top: 20%; right: 20%;">❤️</div>
+    <div class="heart-fixed" style="top: 50%; left: 30%;">❤️</div>
+    <div class="heart-fixed" style="bottom: 20%; right: 15%;">❤️</div>
+    <div class="heart-fixed" style="bottom: 10%; left: 40%;">❤️</div>
+
+    <h1>Lembra quando eu falei que logo chegaria o momento?</h1>
+    <div>
+      <button onclick="confirmYes()">CLARO QUE SIM!</button>
+    </div>
+  </div>
+
+  <!-- Página do Pedido -->
+  <div id="page3" class="container hidden">
+    <h1>Yane, quer namorar comigo?</h1>
+    <div>
+      <button onclick="acceptProposal()">CLARO QUE SIM!</button>
+      <button onclick="acceptProposal()">SIM</button>
+    </div>
+  </div>
+
+  <!-- Página de Confirmação -->
+  <div id="page4" class="container hidden">
+    <h1>Sempre soube que seria você!</h1>
+    <p>Agora somos nós! "O que há dentro do meu coração, eu tenho guardado pra te dar"</p>
+    <h1 class="final-message">TE AMO ❤️</h1>
+    <button onclick="openCartinha()">Ler nossa cartinha</button>
+  </div>
+
+  <!-- Overlay para escurecer o fundo -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Mini Cartinha -->
+  <div class="cartinha hidden" id="cartinha">
+    <h2>Para a Yane, meu amor ❤️</h2>
+    <p>Você é a pessoa que ilumina meus dias e enche meu coração de alegria</p>
+    <p>Cada momento ao seu lado é especial e único</p>
+    <p>Isso é só o começo de uma grande história</p>
+    <p>Eu te amo</p>
+    <p>Obrigado por ser você.</p>
+    <button onclick="closeCartinha()">Fechar</button>
+  </div>
+
+  <!-- Áudio -->
+  <audio id="djavan-audio" src="assets/um-amor-puro.mp3" preload="auto"></audio>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+  <script>
+    // Contagem regressiva
+    function startCountdown() {
+      const countdownElement = document.getElementById('countdown-timer');
+      let count = 3;
+      const interval = setInterval(() => {
+        countdownElement.textContent = count;
+        count--;
+        if (count < 0) {
+          clearInterval(interval);
+          document.getElementById('countdown').classList.add('hidden');
+          document.getElementById('page1').classList.remove('hidden');
+        }
+      }, 1000);
+    }
+
+    // Efeito de digitação
+    function typeWriter(text, element, speed) {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    // Iniciar contagem regressiva e digitação
+    startCountdown();
+    typeWriter("Tem algo especial pra você aqui!", document.getElementById('typed-text'), 100);
+
+    // Navegação entre páginas
+    function showPage2() {
+      document.getElementById("page1").classList.add("hidden");
+      document.getElementById("page2").classList.remove("hidden");
+    }
+
+    function confirmYes() {
+      document.getElementById("page2").classList.add("hidden");
+      document.getElementById("page3").classList.remove("hidden");
+    }
+
+    function acceptProposal() {
+      document.getElementById("page3").classList.add("hidden");
+      document.getElementById("page4").classList.remove("hidden");
+
+      startCelebration();
+      playMusic();
+      confetti(); // Efeito de confetes
+      startFireworks(); // Efeito de fogo de artifício
+    }
+
+    // Reproduzir música
+    function playMusic() {
+      const audioElement = document.getElementById('djavan-audio');
+      audioElement.play();
+    }
+
+    // Efeito de fogo de artifício
+    function startFireworks() {
+      const container = document.querySelector('body');
+      const fireworks = new Fireworks(container, {
+        speed: 3,
+        acceleration: 1.05,
+        friction: 0.98,
+        gravity: 1,
+        particles: 100,
+        explosion: 10,
+      });
+      fireworks.start();
+    }
+
+    // Corações e fotos subindo
+    function startCelebration() {
+      // Corações subindo continuamente
+      setInterval(() => {
+        createHeart();
+      }, 500);
+
+      // Fotos subindo continuamente
+      const photoFiles = ['assets/img1.jpg', 'assets/img2.jpg', 'assets/img3.jpg', 'assets/img4.jpg'];
+      setInterval(() => {
+        const randomPhoto = photoFiles[Math.floor(Math.random() * photoFiles.length)];
+        createPhoto(randomPhoto);
+      }, 2000);
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    function createPhoto(src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.classList.add('photo');
+      img.style.left = Math.random() * 80 + 'vw';
+
+      document.body.appendChild(img);
+
+      setTimeout(() => {
+        img.remove();
+      }, 8000);
+    }
+
+    // Abrir a mini cartinha
+    function openCartinha() {
+      document.getElementById('cartinha').classList.remove('hidden');
+      document.getElementById('overlay').classList.add('active');
+    }
+
+    // Fechar a mini cartinha
+    function closeCartinha() {
+      document.getElementById('cartinha').classList.add('hidden');
+      document.getElementById('overlay').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
