@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Especial para Yane</title>
   <style>
     body {
@@ -11,8 +11,8 @@
       font-family: sans-serif;
       text-align: center;
       color: #333;
-      overflow: hidden; /* Evita rolagem */
-      background: linear-gradient(to bottom right, #9932CC, #E6E6FA); /* Fundo padrão */
+      overflow-x: hidden; /* Evita rolagem horizontal */
+      background: linear-gradient(to bottom right, #9932CC, #E6E6FA);
     }
 
     /* Fundo personalizado para a segunda tela */
@@ -27,6 +27,8 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      padding: 1rem; /* Espaçamento interno */
+      box-sizing: border-box;
       animation: fadeIn 1s ease-in;
       position: relative;
       z-index: 2; /* Garante que o conteúdo fique acima do fundo */
@@ -299,10 +301,38 @@
     .overlay.active {
       display: block;
     }
+
+    /* Ajustes para telas menores */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .balanca, .balanca2, .balanca3,
+      .computador, .computador2, .computador3 {
+        font-size: 2rem;
+      }
+
+      .photo {
+        width: 80px;
+      }
+
+      .cartinha {
+        width: 90%; /* Cartinha ocupa 90% da tela em dispositivos móveis */
+      }
+    }
   </style>
 </head>
 <body>
-
   <!-- Contagem regressiva -->
   <div id="countdown" class="container">
     <h1>Prepare-se...</h1>
