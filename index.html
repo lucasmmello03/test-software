@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Test Software</title>
+  <title>Especial para Yane</title>
   <style>
     body {
       margin: 0;
@@ -31,7 +31,7 @@
       box-sizing: border-box;
       animation: fadeIn 1s ease-in;
       position: relative;
-      z-index: 2; /* Garante que o conteúdo fique acima do fundo */
+      z-index: 2; /* Garante que o conteúdo fique acima dos emojis */
     }
 
     .hidden {
@@ -82,39 +82,39 @@
       color: #ffffff80;
       position: absolute;
       animation: float 6s infinite ease-in-out;
-      z-index: 1;
+      z-index: 1; /* Emojis ficam atrás do conteúdo */
     }
 
     /* Posicionamento das balanças (lado esquerdo) */
     .balanca {
       top: 10%;
-      left: 10%;
+      left: 5%;
     }
 
     .balanca2 {
       top: 40%;
-      left: 15%;
+      left: 10%;
     }
 
     .balanca3 {
       bottom: 10%;
-      left: 20%;
+      left: 15%;
     }
 
     /* Posicionamento dos computadores (lado direito) */
     .computador {
       top: 15%;
-      right: 10%;
+      right: 5%;
     }
 
     .computador2 {
       top: 50%;
-      right: 15%;
+      right: 10%;
     }
 
     .computador3 {
       bottom: 15%;
-      right: 20%;
+      right: 15%;
     }
 
     @keyframes float {
@@ -133,7 +133,7 @@
       position: absolute;
       animation: pulse 1.5s infinite;
       opacity: 0.8;
-      z-index: 1;
+      z-index: 1; /* Emojis ficam atrás do conteúdo */
     }
 
     @keyframes pulse {
@@ -160,7 +160,7 @@
       transform: rotate(-45deg);
       animation: floatUp 5s linear infinite;
       opacity: 0.7;
-      z-index: 1;
+      z-index: 1; /* Emojis ficam atrás do conteúdo */
     }
 
     .heart::before,
@@ -201,7 +201,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       animation: photoFloatUp 8s linear forwards;
-      z-index: 1;
+      z-index: 1; /* Fotos ficam atrás do conteúdo */
     }
 
     @keyframes photoFloatUp {
@@ -246,7 +246,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
-      z-index: 1000;
+      z-index: 1000; /* Cartinha fica acima de tudo */
       animation: openCartinha 0.5s ease-in-out forwards;
     }
 
@@ -294,7 +294,7 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
+      z-index: 999; /* Overlay fica acima do conteúdo, mas abaixo da cartinha */
       display: none;
     }
 
@@ -500,6 +500,7 @@
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
+      heart
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
 
