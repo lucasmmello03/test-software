@@ -1,0 +1,329 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+  color: #333;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+  background: linear-gradient(to bottom right, #9932CC, #E6E6FA);
+}
+
+/* Fundo personalizado para a segunda tela */
+#page2 {
+  background: url('../assets/img5.jpg') no-repeat center center fixed;
+  background-size: cover; /* Cobrir toda a tela */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem; /* Espaçamento interno */
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-in;
+  position: relative;
+  z-index: 2; /* Garante que o conteúdo fique acima dos emojis */
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff; /* Texto branco para contrastar com o fundo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #fff; /* Texto branco para contrastar com o fundo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+}
+
+button {
+  background-color: #BA55D3;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin: 10px;
+  box-shadow: 0 0 10px #FF69B4, 0 0 20px #FF69B4, 0 0 30px #FF69B4;
+}
+
+button:hover {
+  background-color: #9932CC;
+  box-shadow: 0 0 20px #FF69B4, 0 0 30px #FF69B4, 0 0 40px #FF69B4;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Balanças e computadores na página 1 */
+.balanca, .balanca2, .balanca3,
+.computador, .computador2, .computador3 {
+  font-size: 4rem; /* Tamanho padrão para desktop */
+  color: #ffffff80;
+  position: absolute;
+  animation: float 6s infinite ease-in-out;
+  z-index: 1; /* Emojis ficam atrás do conteúdo */
+}
+
+/* Posicionamento das balanças (lado esquerdo) */
+.balanca {
+  top: 10%;
+  left: 5%;
+}
+
+.balanca2 {
+  top: 40%;
+  left: 10%;
+}
+
+.balanca3 {
+  bottom: 10%;
+  left: 15%;
+}
+
+/* Posicionamento dos computadores (lado direito) */
+.computador {
+  top: 15%;
+  right: 5%;
+}
+
+.computador2 {
+  top: 50%;
+  right: 10%;
+}
+
+.computador3 {
+  bottom: 15%;
+  right: 15%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* CORAÇÕES PULSANDO */
+.heart-fixed {
+  font-size: 3rem; /* Tamanho padrão para desktop */
+  color: #FF69B4;
+  position: absolute;
+  animation: pulse 1.5s infinite;
+  opacity: 0.8;
+  z-index: 1; /* Emojis ficam atrás do conteúdo */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1); /* Animação mais suave */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Corações flutuando */
+.heart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: floatUp 5s linear infinite;
+  opacity: 0.7;
+  z-index: 1; /* Emojis ficam atrás do conteúdo */
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+
+.heart::after {
+  left: 15px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Estilo para as fotos que sobem */
+.photo {
+  position: absolute;
+  width: 100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: photoFloatUp 8s linear forwards;
+  z-index: 1; /* Fotos ficam atrás do conteúdo */
+}
+
+@keyframes photoFloatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Efeito de zoom na mensagem final */
+h1.final-message {
+  font-size: 3rem;
+  animation: zoomIn 2s ease-in-out;
+  color: #fff; /* Texto branco para contrastar com o fundo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Estilo da mini cartinha */
+.cartinha {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000; /* Cartinha fica acima de tudo */
+  animation: openCartinha 0.5s ease-in-out forwards;
+}
+
+@keyframes openCartinha {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.cartinha h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #9932CC;
+}
+
+.cartinha p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.cartinha button {
+  background-color: #BA55D3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cartinha button:hover {
+  background-color: #9932CC;
+}
+
+/* Overlay para escurecer o fundo */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* Overlay fica acima do conteúdo, mas abaixo da cartinha */
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .balanca, .balanca2, .balanca3,
+  .computador, .computador2, .computador3 {
+    font-size: 2rem; /* Tamanho reduzido para dispositivos móveis */
+  }
+
+  .heart-fixed {
+    font-size: 1.5rem; /* Tamanho reduzido para dispositivos móveis */
+  }
+
+  .photo {
+    width: 80px;
+  }
+
+  .cartinha {
+    width: 90%; /* Cartinha ocupa 90% da tela em dispositivos móveis */
+  }
+}
