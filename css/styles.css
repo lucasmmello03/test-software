@@ -71,7 +71,7 @@ button:hover {
 /* Balanças e computadores na página 1 */
 .balanca, .balanca2, .balanca3,
 .computador, .computador2, .computador3 {
-  font-size: 4rem; /* Tamanho padrão para desktop */
+  font-size: 2rem; /* Tamanho padrão para desktop */
   color: #ffffff80;
   position: absolute;
   animation: float 6s infinite ease-in-out;
@@ -121,7 +121,7 @@ button:hover {
 
 /* CORAÇÕES PULSANDO */
 .heart-fixed {
-  font-size: 3rem; /* Tamanho padrão para desktop */
+  font-size: 1rem; /* Tamanho padrão para desktop */
   color: #FF69B4;
   position: absolute;
   animation: pulse 1.5s infinite;
@@ -312,11 +312,11 @@ h1.final-message {
 
   .balanca, .balanca2, .balanca3,
   .computador, .computador2, .computador3 {
-    font-size: 2rem; /* Tamanho reduzido para dispositivos móveis */
+    font-size: 1rem; /* Tamanho bem pequeno para dispositivos móveis */
   }
 
   .heart-fixed {
-    font-size: 1.5rem; /* Tamanho reduzido para dispositivos móveis */
+    font-size: 1rem; /* Tamanho bem pequeno para dispositivos móveis */
   }
 
   .photo {
