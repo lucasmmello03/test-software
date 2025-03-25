@@ -79,7 +79,7 @@ function startCountdown() {
   }, 500);
 
   // Fotos subindo continuamente
-  const photoFiles = ['assets/img1.jpg', 'assets/img2.jpg', 'assets/img3.jpg', 'assets/img4.jpg'];
+  const photoFiles = ['assets/img1.jpg', 'assets/img2.jpg', 'assets/img3.jpg', 'assets/img4.jpg', 'assets/img5.jpg', 'assets/img6.jpg'];
   setInterval(() => {
     const randomPhoto = photoFiles[Math.floor(Math.random() * photoFiles.length)];
     createPhoto(randomPhoto);
